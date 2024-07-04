@@ -1,0 +1,128 @@
+body {
+    background-color: #393439;
+    color: #E0E0E0;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    background-color: #111111;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .navbar a:hover {
+    color: #ff4d4d;
+  }
+  
+  .hero img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-text {
+    text-align: center;
+    padding: 20px;
+    background-color: #393439;
+  }
+  
+  .hero-text h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #E0E0E0;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .hero-text p {
+    font-size: 1.2em;
+    color: #E0E0E0;
+    margin-bottom: 20px;
+  }
+  
+  .order-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    display: inline-block;
+  }
+  
+  .order-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+
+  .hero {
+    background: url('pjbackground.png') no-repeat center center/cover;
+    color: black;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .menu-section {
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  }
+  
+  .menu-section h2 {
+    font-family: 'Oswald', sans-serif;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .menu-section h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #FFD700;
+    margin-bottom: 5px;
+  }
+  
+  .menu-section hr {
+    border: 0;
+    border-top: 2px solid #FFD700;
+    margin: 10px 0;
+  }
+  
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .menu-item p {
+    margin: 0;
+  }
+  
+  .menu-item .price {
+    font-weight: bold;
+  }
+  
+  footer {
+    background-color: #111111;
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  
