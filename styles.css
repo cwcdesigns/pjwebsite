@@ -24,15 +24,24 @@ body {
     color: #ff4d4d;
   }
   
+  .hero {
+    background: url('pjbackground.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh; /* Make it full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
   .hero img {
-    width: 100%;
-    height: auto;
+    display: none; /* Remove the image tag if it exists */
   }
   
   .hero-text {
     text-align: center;
     padding: 20px;
-    background-color: #393439;
   }
   
   .hero-text h1 {
@@ -71,19 +80,14 @@ body {
   .center-text {
     text-align: center;
   }
-
-  .hero {
-    background: url('pjbackground.png') no-repeat center center/cover;
-    color: black;
-    padding: 50px 0;
-    text-align: center;
-  }
   
   .menu-section {
     background-color: #262626;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 50px;
+    width: 60%; /* Adjust this value to make the box smaller */
+    margin: 0 auto;
   }
   
   .menu-section h2 {
@@ -97,6 +101,7 @@ body {
     font-family: 'Oswald', sans-serif;
     color: #FFD700;
     margin-bottom: 5px;
+    font-weight: bold;
   }
   
   .menu-section hr {
@@ -111,12 +116,34 @@ body {
     margin-bottom: 10px;
   }
   
+  .item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
   .menu-item p {
     margin: 0;
   }
   
   .menu-item .price {
+    margin-left: 20px;
+    align-self: flex-end;
     font-weight: bold;
+  }
+  
+  .menu-category h3 {
+    font-weight: bold;
+  }
+  
+  .menu-item .title {
+    font-size: 1.1em; /* Adjust the size as needed */
+    font-weight: bold;
+  }
+  
+  .menu-item .description {
+    font-size: 0.8em; /* Smaller size for descriptions */
+    line-height: 1.2; /* Adjust line-height if needed */
   }
   
   footer {
