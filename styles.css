@@ -28,7 +28,7 @@ body {
     background: url('pjbackground.png') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
-    height: 100vh; /* Make it full viewport height */
+    height: 40vh; /* Make it full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
