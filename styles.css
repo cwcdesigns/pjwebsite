@@ -24,16 +24,13 @@ body {
     color: #ff4d4d;
   }
   
-  .hero {
-    background: url('pjbackground.png') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 40vh; /* Make it full viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
+ .hero {
+  background: url('pjbackground.png') no-repeat center center/cover;
+  background-attachment: fixed;
+  color: black;
+  padding: 50px 0;
+  text-align: center;
+}
   
   .hero img {
     display: none; /* Remove the image tag if it exists */
