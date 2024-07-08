@@ -29,7 +29,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: black;
-  height: 100vh; /* Full viewport height */
+  height: 50vh; /* Adjust the height to make it smaller */
   display: flex;
   justify-content: center;
   align-items: center;
