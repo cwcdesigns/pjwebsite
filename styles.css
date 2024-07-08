@@ -26,14 +26,18 @@ body {
 
 .hero {
   background: url('pjbackground.png') no-repeat center center;
-  background-size: cover;
+  background-size: contain; /* Ensure the image does not stretch */
   background-attachment: fixed;
   color: black;
-  height: 50vh; /* Adjust the height to make it smaller */
+  height: 50vh; /* Adjust the height */
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+.hero img {
+  display: none; /* Remove the image tag if it exists */
 }
 
 .hero-text {
