@@ -1,512 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plain Jane's Italian Cuisine</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Leckerli+One&family=Oswald&family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script>
-    !function(e,t,r,n){var o,c,s;o=e.document,c=t.children[0],s=o.createElement("script"),e.StorefrontSDKObject="StorefrontSDK",e[e.StorefrontSDKObject]={executeCommand:function(t,r){e[e.StorefrontSDKObject].buffer.push([t,r])},buffer:[]},s.async=1,s.src="https://web-apps.cdn4dd.com/webapps/sdk-storefront/latest/sdk.js",t.insertBefore(s,c)}(window.top,document.head);
-    StorefrontSDK.executeCommand('renderFloatingButton', 
-      { 
-        businessId: 12761044, 
-        businessSlug: 'PlainJane’sItalianCuisine', 
-        floatingBar: true,
-        position: 'top',
-        buttonAlignment: 'center',
-        backgroundColor: 'transparent',
-        buttonBackgroundColor: '#D92128',
-        borderColor: 'transparent',
-        buttonText: 'Order Carryout or Delivery',
-        showModal: true,
-      }
-    )
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plain Jane's Italian Cuisine | Hartsville, TN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root {
+            /* Dark Mode (Default) */
+            --primary-accent: #D92128;
+            --background-primary: #1a1a1a;
+            --background-secondary: #2a2a2a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #cccccc;
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            
+            --body-font: 'Montserrat', sans-serif;
+        }
+
+        body.light-mode {
+            /* Light Mode */
+            --background-primary: #f4f4f4;
+            --background-secondary: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --border-color: #dddddd;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            background-color: var(--background-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            transition: background-color 0.3s ease;
+        }
+        
+        main section:nth-of-type(odd) {
+            background-color: var(--background-secondary);
+        }
+
+        h1, h2, h3, h4, .navbar .logo, .price-value {
+            font-family: var(--body-font); /* Unified Font */
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+        }
+        
+        h4 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        /* --- Header & Navigation --- */
+        .navbar {
+            background-color: var(--background-secondary);
+            padding: 15px 0;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            color: var(--text-primary); /* Unified Color */
+            text-decoration: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-accent);
+        }
+
+        /* --- Theme Toggle Button --- */
+        .theme-toggle-button {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.5rem;
+            margin-left: 30px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle-button .fa-sun { display: none; }
+        .theme-toggle-button .fa-moon { display: block; }
+        
+        body.light-mode .theme-toggle-button .fa-sun { display: block; }
+        body.light-mode .theme-toggle-button .fa-moon { display: none; }
+
+
+        /* --- Menu Section --- */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tab-button {
+            background: var(--background-secondary);
+            border: 2px solid var(--border-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active, .tab-button:hover {
+            background-color: var(--primary-accent);
+            color: #ffffff;
+            border-color: var(--primary-accent);
+        }
+        
+        .menu-content { display: none; }
+        .menu-content.active { display: block; }
+        .menu-category { max-width: 900px; margin: 0 auto; }
+
+        .menu-category h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-primary); /* Unified Color */
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        
+        .menu-item:last-child { border-bottom: none; }
+        .item-details { padding-right: 20px; }
+        
+        .item-details .title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+        
+        .item-details .description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .menu-item .price {
+            font-weight: 600;
+            color: var(--text-primary); /* Unified Color */
+            font-size: 1.1rem;
+            padding-left: 20px;
+            white-space: nowrap;
+            text-align: right;
+            line-height: 1.5;
+        }
+        
+        .pricing-bar {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            /* Removed border: 1px solid var(--border-color); */
+            transition: border-color 0.3s ease;
+        }
+        .price-point .size {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+        .price-point .price-value {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--text-primary); /* Unified Color */
+        }
+
+        .build-your-own-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .toppings-list ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        /* --- Contact Section --- */
+        .contact-layout {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            background-color: var(--background-primary);
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 300px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-info h3 { font-size: 1.8rem; text-align: center; }
+        .contact-info p, .contact-hours { font-size: 1.1rem; margin-bottom: 15px; }
+        .contact-info i { color: var(--primary-accent); margin-right: 15px; width: 20px; text-align: center; }
+        .contact-hours { display: flex; align-items: flex-start; }
+        .social-media-box { text-align: center; margin-top: 20px; }
+        .social-media-box h4 { font-family: var(--body-font); font-size: 1.1rem; font-weight: 600; color: var(--text-secondary); margin: 0 0 15px 0; }
+        .social-media { display: flex; justify-content: center; gap: 25px; }
+        .social-media a { color: var(--text-primary); font-size: 2rem; transition: color 0.3s ease; }
+        .social-media a:hover { color: var(--primary-accent); }
+        .map-container {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            min-height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow-color);
+            flex: 1.5;
+            min-width: 350px;
+        }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        footer {
+            background-color: var(--background-primary);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        footer p { margin-bottom: 5px; }
+
+        @media (min-width: 768px) {
+            .menu-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 992px) {
+             .contact-layout { flex-direction: column; align-items: center; }
+             .contact-info, .map-container { max-width: 90%; flex: none; }
+        }
+        @media (max-width: 768px) {
+            h2 { font-size: 2.5rem; }
+            .navbar .logo { font-size: 1.5rem; }
+            .nav-links a { margin: 0 10px; }
+            .menu-grid, .build-your-own-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 500px) {
+            .navbar .container { flex-direction: column; gap: 15px; }
+            .navbar .logo { position: static; transform: none; }
+            .nav-links { margin-left: 0; width: 100%; justify-content: center; }
+            .pricing-bar { flex-direction: column; gap: 15px; }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div>
-      <a href="index.html">Home</a>
-      <a href="media">Media</a>
-    </div>
-  </nav>
-  <section class="hero">
-    <img src="pjbackground.png" alt="Background Image">
-  </section>
-  
-  <div class="container">
-    <section class="hero-text">
-      <p>Hours:</p>
-      <p>Mon-Thurs 4-8PM Fri-Sat 4-9PM</p>
-      <p>116 W McMurry Blvd, Hartsville TN 37074</p>
-      <p>Call In! 615-374-6969</p>
-
-       <!-- Social Media Section -->
-    <section class="social-media">
-      <h3>Online Ordering</h3>
-      <button class="Instagram" onclick="window.open('https://www.doordash.com/store/plain-jane%E2%80%99s-italian-cuisine-hartsville-27901268/?srsltid=AfmBOoqip9KDQB30Y-O0NKuJGXV8VTR1GjimiP8OKyBL08WdXcRJGn2P', '_blank')">DoorDash</button>
-      <button class="facebook" onclick="window.open('https://www.ubereats.com/store/plain-janes-italian-cuisine/eUK_v2z9T0SVu2EAQxjYww?srsltid=AfmBOopNJSyYfUulxGhsm0y2RvuncbG0aB31pOi72bSlfHMrwED3uLsx', '_blank')">Uber Eats</button>
-    </section>
-      
-    </section>
-
-    <section class="menu-section center-text">
-      <h2>MENU</h2>
-
-
-            <div class="menu-category">
-        <h3>Appetizers</h3>
-        <hr>
-        <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Basket Of Fries</p>
-              <p class="description">Crinkle Cut Fries topped with salt.</p>
-               <p class="price">$4.99</p>
-            </div>
-          </div>
-        <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Chicken Tenders</p>
-              <p class="description">Five fried chicken tenders, add a side of fries for $1.99</p>
-               <p class="price">$9.99</p>
-              <p class="description">Side Of Fries</p>
-              <p class="price">$1.99</p>
-            </div>
-          </div>
-                      <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Garlic Bread</p>
-              <p class="description">Bread brushed with garlic butter, and topped with oregano.</p>
-               <p class="price">$3.99</p>
-            </div>
-          </div>
-                      <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Cheese Bread Sticks</p>
-              <p class="description">Brushed with garlic butter, then topped with Mozzarella, Cheddar, and Parmesan.</p>
-               <p class="price">$8.99</p>
-            </div>
-          </div>
-      <div class="menu-box">
-        <div class="menu-category">
-          <h3>Jane's Gourmet Pizzas</h3>
-          <hr>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">All gourmet pies are 14" or request a 18"!</p>
-                <p class="description">Large $17.99 Extra Large $25.99</p>
-              <p class="description"></p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">White Pizza</p>
-              <p class="description">Olive Oil, Provolone, Mozzarella, Parmesan Cheese, Beef, Oregano, Basil, Onions, Green Peppers, Tomatos.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Greek Pizza</p>
-              <p class="description">Olive Oil, Fresh Garlic, Oregano, Feta Cheese, Onion, Black Olives, and Tomatoes.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">BBQ Chicken</p>
-              <p class="description">BBQ Sauce, Grilled Chicken, Mozzarella, and Cheddar.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Meatball Feast</p>
-              <p class="description">Marinara, Topped with Provolone, sliced meatballs, oregano, and Parmesan Cheese.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Hawaiian Pizza</p>
-              <p class="description">Pineapple, Ham, and Mushrooms.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Philly Feast</p>
-              <p class="description">Philly Steak, Onions, and Green Peppers.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Italian Feast</p>
-              <p class="description">Italian Link Sausage, Salami, Pepperoni, and Meatballs.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Chicken Bacon Ranch</p>
-              <p class="description">Grilled Chicken, Bacon, Ranch, and Onions.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Bacon Cheeseburger Pizza</p>
-              <p class="description">Ground Beef, Bacon, Cheddar, Provolone, and Mozzarella.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Spinach Pizza</p>
-              <p class="description">Spinach, Tomato, Onion, and Fresh Garlic.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Supreme</p>
-              <p class="description">Pepperoni, Sausage, Mushrooms, Onions, and Green Peppers.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Meat Feast</p>
-              <p class="description">Pepperoni, Italian Sausage, Ham, Ground Beef, and Bacon.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Quesadilla Pizza</p>
-              <p class="description">Topped with Grilled Chicken, Tomatoes. Green Peppers, White Sauce, and seasoning.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Favorite</p>
-              <p class="description">Canadian Bacon, Beef, Onions, Mushrooms, Green Peppers, and Black Olives.</p>
-            </div>
-          </div>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Plain Jane's Italian Cuisine</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle-button" title="Toggle light/dark mode">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div class="menu-category">
-          <h3>Calzone & Stromboli</h3>
-          <hr>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Calzone</p>
-              <p class="price">S $13.99 M $15.99 L $17.99</p>
-              <p class="description">Pepperoni, Sausage, Mushrooms, Mozzarella, Ricotta Cheese, topped with Parmesan.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Cheese Calzone</p>
-              <p class="description">Mozzarella, Ricotta, and topped with Parmesan. you can also customize this.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Spinach Calzone</p>
-              <p class="description">Mozzarella, Spinach, Ricotta and topped with Parmesan.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Stromboli</p>
-              <p class="description">Pepperoni, Sausage, Onions, Mushrooms, Green Peppers, Mozzarella, and topped with Parmesan.</p>
-            </div>
-          </div>
-        </div>
+    <main>
+        <section id="menu">
+            <div class="container">
+                <h2>Our Menu</h2>
+                <div class="menu-tabs">
+                    <button class="tab-button active" data-tab="appetizers">Appetizers</button>
+                    <button class="tab-button" data-tab="pizzas">Gourmet Pizzas</button>
+                    <button class="tab-button" data-tab="build">Build Your Own</button>
+                    <button class="tab-button" data-tab="calzones">Calzones & Stromboli</button>
+                    <button class="tab-button" data-tab="pastas">Pastas</button>
+                    <button class="tab-button" data-tab="wings">Wings</button>
+                    <button class="tab-button" data-tab="subs">Subs</button>
+                    <button class="tab-button" data-tab="salads">Salads</button>
+                    <button class="tab-button" data-tab="desserts">Desserts</button>
+                </div>
 
-        <div class="menu-category">
-          <h3>Wings</h3>
-          <hr>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="description">Sauces: Hartsville Hot, Garlic Parmesan, Buffalo, Sweet BBQ, and Jamaican Jerk.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">6 Piece</p>
-              <p class="price">$8.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">10 Piece</p>
-              <p class="price">$13.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">20 Piece</p>
-              <p class="price">$24.99</p>
-            </div>
-          </div>
-        </div>
-         </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">50 Piece</p>
-              <p class="price">$49.99</p>
-            </div>
-          </div>
-        </div>
+                <div id="appetizers" class="menu-content active">
+                    <div class="menu-category">
+                        <h3>Appetizers</h3>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">Basket Of Fries</p><p class="description">Crinkle Cut Fries topped with salt.</p></div><p class="price">$4.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Chicken Tenders</p><p class="description">Five fried chicken tenders, add a side of fries for $1.99.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Garlic Bread</p><p class="description">Bread brushed with garlic butter, and topped with oregano.</p></div><p class="price">$3.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Cheese Bread Sticks</p><p class="description">Brushed with garlic butter, then topped with Mozzarella, Cheddar, and Parmesan.</p></div><p class="price">$8.99</p></div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="menu-category">
-          <h3>Dress Your Own Pizza</h3>
-          <hr>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Topping Prices</p>
-              <p class="price">S $.99 M $1.49 L $1.99 XL $2.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Pepperoni</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Mushrooms</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Green Peppers</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Banana Peppers</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Onions</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Green & Black Olives</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Tomatos</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Sausage</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Beef</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Canadian Bacon</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Ham</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Bacon</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Fresh Garlic</p>
-            </div>
-          </div>
-        </div>
+                <div id="pizzas" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Jane's Gourmet Pizzas</h3>
+                        <div class="pricing-bar">
+                            <div class="price-point"><span class="size">Small</span><span class="price-value">$13.99</span></div>
+                            <div class="price-point"><span class="size">Medium</span><span class="price-value">$15.99</span></div>
+                            <div class="price-point"><span class="size">Large</span><span class="price-value">$17.99</span></div>
+                            <div class="price-point"><span class="size">XL</span><span class="price-value">$25.99</span></div>
+                        </div>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">White Pizza</p><p class="description">Olive Oil, Provolone, Mozzarella, Parmesan, Beef, Oregano, Basil, Onions, Green Peppers, Tomatos.</p></div></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Greek Pizza</p><p class="description">Olive Oil, Fresh Garlic, Oregano, Feta, Onion, Black Olives, and Tomatoes.</p></div></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">BBQ Chicken</p><p class="description">BBQ Sauce, Grilled Chicken, Mozzarella, and Cheddar.</p></div></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Meatball Feast</p><p class="description">Marinara, Provolone, sliced meatballs, oregano, and Parmesan.</p></div></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Supreme</p><p class="description">Pepperoni, Sausage, Mushrooms, Onions, and Green Peppers.</p></div></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Meat Feast</p><p class="description">Pepperoni, Italian Sausage, Ham, Ground Beef, and Bacon.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="build" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Build Your Own Pizza</h3>
+                        <div class="build-your-own-grid">
+                            <div class="pricing-info">
+                                <div class="menu-item"><div class="item-details"><p class="title">Base Cheese Pizza</p></div><p class="price">S: $9.99<br>M: $11.99<br>L: $12.99<br>XL: $19.99</p></div>
+                                <div class="menu-item"><div class="item-details"><p class="title">Price Per Topping</p></div><p class="price">S: $0.99<br>M: $1.49<br>L: $1.99<br>XL: $2.99</p></div>
+                            </div>
+                            <div class="toppings-list">
+                                <h4>Available Toppings</h4>
+                                <ul><li>Pepperoni</li><li>Sausage</li><li>Beef</li><li>Ham</li><li>Bacon</li><li>Canadian Bacon</li><li>Mushrooms</li><li>Onions</li><li>Green Peppers</li><li>Banana Peppers</li><li>Green & Black Olives</li><li>Tomatoes</li><li>Fresh Garlic</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="menu-category">
-          <h3>Jane's Submarine Sandwiches</h3>
-          <hr>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Hartsville Hot Chicken</p>
-              <p class="price">$9.99</p>
-              <p class="description">Breaded Chicken Breast, and topped with Our Signature Hartsville Hot Seasoning.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Philly Cheese Steak Sub</p>
-              <p class="description">Philly Steak, Onions, and Green Peppers.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Italian Sub</p>
-              <p class="description">Pepperoni, Ham, Salami, Cheese, Lettuce, and Tomato.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Meatball Sub</p>
-              <p class="description">Marinara, Sliced Meatballs, Parmesan Cheese, Provolone, and Mozzarella.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Grilled Chicken Sub</p>
-              <p class="description">Grilled Chicken, Cheese, Green Peppers, Onions.</p>
-            </div>
-          </div>
-        </div>
+                <div id="calzones" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Calzone & Stromboli</h3>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Calzone</p><p class="description">Pepperoni, Sausage, Mushrooms, Mozzarella, Ricotta Cheese.</p></div><p class="price">S $13.99<br>M $15.99<br>L $17.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Cheese Calzone</p><p class="description">Mozzarella & Ricotta cheese. Customize with toppings.</p></div><p class="price">S $11.99<br>M $13.99<br>L $15.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Spinach Calzone</p><p class="description">Spinach with Mozzarella & Ricotta cheese.</p></div><p class="price">S $12.99<br>M $14.99<br>L $16.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Stromboli</p><p class="description">Pepperoni, Sausage, Onions, Mushrooms, Green Peppers, Mozzarella.</p></div><p class="price">S $13.99<br>M $15.99<br>L $17.99</p></div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="menu-category">
-          <h3>Jane's Delicious Salads</h3>
-          <hr>
-          <p class="description">dressings: French, Ranch, Italian, Honey Mustard, Balsamic Vinaigrette, and Thousand Island.</p>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">House Salad</p>
-              <p class="price">$8.99</p>
-              <p class="description">Lettuce, Tomato, Onion, Green Peppers, Black and Green Olives, Topped with cheese.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Antipasto Salad</p>
-              <p class="price">$9.99</p>
-              <p class="description">Lettuce, Tomato, Onion, Green Peppers, Black and Green Olives, Ham, Salami, and Pepperoni Topped with cheese.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Greek Salad</p>
-              <p class="price">$9.99</p>
-              <p class="description">Lettuce, Tomato, Onion, Green Peppers, Black and Green Olives, Feta Cheese Topped with cheese.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Grilled Chicken Salad</p>
-              <p class="price">$9.99</p>
-              <p class="description">Lettuce, Tomato, Onion, Green Peppers, Black and Green Olives, Grilled Chicken Topped with cheese.</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Chef Salad</p>
-              <p class="price">$9.99</p>
-              <p class="description">Lettuce, Tomato, Onion, Green Peppers, Black and Green Olives, Turkey, Ham, Topped with cheese.</p>
-            </div>
-          </div>
-        </div>
+                <div id="pastas" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Jane's Favorite Pastas</h3>
+                        <p class="description" style="text-align:center; margin-bottom: 2rem;">All Pastas come with 2 Bread Sticks and a Side Salad.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Baked Spaghetti</p><p class="description">Add Meatballs or Italian Sausage for $3.99</p></div><p class="price">$12.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Baked Ziti</p><p class="description">Add Meatballs or Italian Sausage for $3.99</p></div><p class="price">$12.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Lasagna</p></div><p class="price">$14.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Chicken Fettuccine Alfredo</p></div><p class="price">$15.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Jane's Chicken Parmesan</p></div><p class="price">$15.99</p></div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="menu-category">
-          <h3>Jane's Favorite Pastas</h3>
-          <hr>
-             <p class="description">All Pastas come with 2 Bread Sticks and a Side Salad.</p>
-             <p class="description">dressings: French, Ranch, Italian, Honey Mustard, Balsamic Vinaigrette, and Thousand Island.</p>
-          
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Baked Spaghetti | Add Meatballs or Italian Sausage for $3.99</p>
-              <p class="price">$12.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Baked Ziti | Add Meatballs or Italian Sausage for $3.99</p>
-              <p class="price">$12.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Lasagna</p>
-              <p class="price">$14.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Chicken Fettuccine Alfredo</p>
-              <p class="price">$15.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Jane's Chicken Parmesan</p>
-              <p class="price">$15.99</p>
-            </div>
-          </div>
-        </div>
+                <div id="wings" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Wings</h3>
+                        <p class="description" style="text-align:center; margin-bottom: 2rem;">Sauces: Hartsville Hot, Garlic Parmesan, Buffalo, Sweet BBQ, and Jamaican Jerk.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">6 Piece</p></div><p class="price">$8.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">10 Piece</p></div><p class="price">$13.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">20 Piece</p></div><p class="price">$24.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">50 Piece</p></div><p class="price">$49.99</p></div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="menu-category">
-          <h3>JANE'S DESSERTS</h3>
-          <hr>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Cheese Cake</p>
-              <p class="price">$5.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Cannoli</p>
-              <p class="price">$3.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Tiramisu</p>
-              <p class="price">$4.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Milky Way Galaxy</p>
-              <p class="price">$5.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Strawberry</p>
-              <p class="price">$5.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Peanut Butter Chocolate</p>
-              <p class="price">$5.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Coconut Cloud</p>
-              <p class="price">$5.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Limoncello</p>
-              <p class="price">$5.99</p>
-            </div>
-          </div>
-          <div class="menu-item">
-            <div class="item-details">
-              <p class="title">Chocolate Cannoli</p>
-              <p class="price">$5.99</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+                <div id="subs" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Jane's Submarine Sandwiches</h3>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">Hartsville Hot Chicken</p><p class="description">Breaded Chicken Breast, topped with Our Signature Hartsville Hot Seasoning.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Philly Cheese Steak Sub</p><p class="description">Philly Steak, Onions, and Green Peppers.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Italian Sub</p><p class="description">Pepperoni, Ham, Salami, Cheese, Lettuce, and Tomato.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Meatball Sub</p><p class="description">Marinara, Sliced Meatballs, Parmesan, Provolone, and Mozzarella.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Grilled Chicken Sub</p><p class="description">Grilled Chicken, Cheese, Green Peppers, Onions.</p></div><p class="price">$9.99</p></div>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    <p>&copy; 2024 Plain Jane's Italian Cuisine&trade; All rights reserved.</p>
-  </footer>
+                <div id="salads" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Jane's Delicious Salads</h3>
+                        <p class="description" style="text-align:center; margin-bottom: 2rem;">Dressings: French, Ranch, Italian, Honey Mustard, Balsamic Vinaigrette, Thousand Island.</p>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">House Salad</p><p class="description">Lettuce, Tomato, Onion, Green Peppers, Black & Green Olives, Topped with cheese.</p></div><p class="price">$8.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Antipasto Salad</p><p class="description">House salad with Ham, Salami, and Pepperoni.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Greek Salad</p><p class="description">House salad with Feta Cheese.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Grilled Chicken Salad</p><p class="description">House salad with Grilled Chicken.</p></div><p class="price">$9.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Chef Salad</p><p class="description">House salad with Turkey and Ham.</p></div><p class="price">$9.99</p></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="desserts" class="menu-content">
+                    <div class="menu-category">
+                        <h3>Jane's Desserts</h3>
+                        <div class="menu-grid">
+                            <div class="menu-item"><div class="item-details"><p class="title">Cheese Cake</p></div><p class="price">$5.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Cannoli</p></div><p class="price">$3.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Tiramisu</p></div><p class="price">$4.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Milky Way Galaxy Cake</p></div><p class="price">$5.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Strawberry Cake</p></div><p class="price">$5.99</p></div>
+                            <div class="menu-item"><div class="item-details"><p class="title">Chocolate Cannoli</p></div><p class="price">$5.99</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 style="margin-bottom: 40px;">Contact & Location</h2>
+                <div class="contact-layout">
+                     <div class="contact-info">
+                         <h3>Visit Us</h3>
+                         <p><i class="fas fa-map-marker-alt"></i> 116 W McMurry Blvd, Hartsville TN 37074</p>
+                         <div class="contact-hours">
+                              <i class="fas fa-clock"></i>
+                              <div>
+                                 <strong>Mon - Thu:</strong> 4PM - 8PM<br>
+                                 <strong>Fri - Sat:</strong> 4PM - 9PM<br>
+                                 <strong>Sun:</strong> Closed
+                              </div>
+                         </div>
+                         <p><i class="fas fa-phone"></i> (615) 374-6969</p>
+                         <div class="social-media-box">
+                             <h4>Follow Us</h4>
+                             <div class="social-media">
+                                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=116%20W%20McMurry%20Blvd,%20Hartsville%20TN%2037074&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Plain Jane's Italian Cuisine™ All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Menu Tab Logic ---
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.menu-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(item => item.classList.remove('active'));
+                    contents.forEach(item => item.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab).classList.add('active');
+                });
+            });
+
+            // --- Light/Dark Mode Logic ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Function to apply the saved theme
+            const applyTheme = (theme) => {
+                if (theme === 'light') {
+                    body.classList.add('light-mode');
+                } else {
+                    body.classList.remove('light-mode');
+                }
+            };
+
+            // Event listener for the toggle button
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-mode');
+                // Save the user's preference to localStorage
+                const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+                localStorage.setItem('theme', currentTheme);
+            });
+
+            // Check for saved theme on page load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            }
+        });
+    </script>
+    
+    <script>
+        !function(e,t,r,n){var o,c,s;o=e.document,c=t.children[0],s=o.createElement("script"),e.StorefrontSDKObject="StorefrontSDK",e[e.StorefrontSDKObject]={executeCommand:function(t,r){e[e.StorefrontSDKObject].buffer.push([t,r])},buffer:[]},s.async=1,s.src="https://web-apps.cdn4dd.com/webapps/sdk-storefront/latest/sdk.js",t.insertBefore(s,c)}(window.top,document.head);
+        StorefrontSDK.executeCommand('renderFloatingButton', {
+            businessId: 12761044,
+            businessSlug: 'PlainJane’sItalianCuisine',
+            floatingBar: true,
+            position: 'bottom',
+            buttonAlignment: 'center',
+            backgroundColor: 'transparent',
+            buttonBackgroundColor: '#D92128',
+            borderColor: 'transparent',
+            buttonText: 'Order Carryout or Delivery',
+            showModal: true,
+        });
+    </script>
 </body>
 </html>
